@@ -1,0 +1,37 @@
+/* Effet Glassmorphism pour les cartes */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(6, 182, 212, 0.3); /* accentCyan avec opacité */
+}
+
+/* Style des badges de compétences */
+.skill-badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #e2e8f0;
+    background: rgba(30, 41, 59, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+}
+
+.skill-badge:hover {
+    border-color: #a855f7; /* accentPurple */
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
+}
+
+/* Fix pour éviter les barres de défilement horizontales avec AOS */
+html, body {
+    overflow-x: hidden;
+}
