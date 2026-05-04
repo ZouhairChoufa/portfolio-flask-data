@@ -28,8 +28,10 @@
     ├── templates/
     │   └── index.html          # Template HTML principal (Tailwind CDN)
     └── static/
-        ├── style.css           # Styles CSS personnalises & overrides
-        ├── script.js           # Logique UI, Three.js, AOS & EmailJS
+        ├── css 
+            ├── style.css            # Styles CSS personnalises & overrides
+        ├── js 
+            ├── script.js            # Logique UI, Three.js, AOS & EmailJS
         └── profile.png         # Photo de profil
 
 ---
