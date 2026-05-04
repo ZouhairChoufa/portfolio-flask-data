@@ -72,22 +72,46 @@ document.querySelectorAll('.mobile-link').forEach(l =>
   setTimeout(tick, 800);
 })();
 
-/* ─── 6. Custom Cursor ────────────────────────────────────── */
+/* ─── 6. Custom Cursor ───────────────── */
 (function cursor() {
   const dot  = document.getElementById('cursor');
   const ring = document.getElementById('cursor-ring');
   if (!dot || !ring) return;
-  let rx = 0, ry = 0;
+
+  let mouseX = 0;
+  let mouseY = 0;
+  let ringX = 0;
+  let ringY = 0;
+
+  // On calcule automatiquement la moitié de la taille de tes éléments
+  const dotOffsetX = dot.offsetWidth / 2;
+  const dotOffsetY = dot.offsetHeight / 2;
+  const ringOffsetX = ring.offsetWidth / 2;
+  const ringOffsetY = ring.offsetHeight / 2;
+
+  // L'événement stocke les coordonnées
   window.addEventListener('mousemove', e => {
-    dot.style.left  = e.clientX + 'px';
-    dot.style.top   = e.clientY + 'px';
-    rx += (e.clientX - rx) * .18;
-    ry += (e.clientY - ry) * .18;
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
+    mouseX = e.clientX;
+    mouseY = e.clientY;
   });
-  function lerp() { rx += (parseFloat(dot.style.left||0) - rx) * .12; ry += (parseFloat(dot.style.top||0) - ry) * .12; ring.style.left = rx+'px'; ring.style.top = ry+'px'; requestAnimationFrame(lerp); }
-  lerp();
+
+  // La boucle d'animation
+  function render() {
+    // On soustrait l'offset (la moitié de la taille) pour que le centre soit sur la souris
+    dot.style.transform = `translate3d(${mouseX - dotOffsetX}px, ${mouseY - dotOffsetY}px, 0)`;
+    
+    // Effet élastique pour l'anneau
+    ringX += (mouseX - ringX) * 0.2; 
+    ringY += (mouseY - ringY) * 0.2;
+    
+    // Centrage parfait de l'anneau
+    ring.style.transform = `translate3d(${ringX - ringOffsetX}px, ${ringY - ringOffsetY}px, 0)`;
+
+    requestAnimationFrame(render);
+  }
+  
+  // Démarrage
+  render();
 })();
 
 /* ─── 7. THREE.JS — Neural Network / Data Cloud ──────────── */

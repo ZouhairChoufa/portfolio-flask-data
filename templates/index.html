@@ -196,7 +196,7 @@
             <!-- Photo container -->
             <div class="profile-photo-inner">
               <img
-                src="{{ url_for('static', filename='profile.png') }}"
+                src="{{ url_for('static', filename='profile2.png') }}"
                 alt="Zouhair Choufa"
                 class="profile-photo"
                 onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'profile-placeholder\'><span class=\'font-display text-5xl text-neon-cyan\'>ZC</span></div>';"
@@ -264,9 +264,9 @@
         <!-- Profile cards -->
         <div class="space-y-4" data-aos="fade-left" data-aos-delay="150">
           {% for icon, color, title, desc, tags in [
-            ('fa-brain','cyan','Data Scientist & IA','Conception de modèles ML/NLP, architectures Multi-Agents et Computer Vision. Automatisation intelligente via LLMs.',['Python','TensorFlow','CrewAI']),
-            ('fa-code','violet','Développeur Fullstack','Applications web complètes, du backend Flask/Node.js à l\'interface Vue.js/Tailwind. Focus performance & UX.',['Flask','Vue.js','Firebase']),
-            ('fa-chart-column','green','Business Intelligence','Dashboards Power BI (DAX), analyse de données Pandas, visualisations temps réel via PI System & Elasticsearch.',['Power BI','Pandas','PI System'])
+            ('fa-brain','cyan','Data Scientist & IA','Conception de modèles ML/NLP, architectures Multi-Agents (CrewAI) et intégration RAG. Automatisation intelligente via LLMs.',['Python','TensorFlow','CrewAI']),
+            ('fa-code','violet','Développeur Fullstack (Python)','Conception d\'applications web orientées Data. Développement de backends robustes avec Flask et création d\'interfaces interactives via Streamlit et Tailwind.',['Flask','Streamlit','Tailwind CSS']),
+            ('fa-chart-column','green','Business Intelligence','Dashboards Power BI (DAX), analyse de données avec Pandas, visualisations temps réel via PI System & Elasticsearch.',['Power BI','Pandas','PI System'])
           ] %}
           <div class="profile-type-card group" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
             <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0

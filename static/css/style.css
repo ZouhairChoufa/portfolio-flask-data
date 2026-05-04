@@ -1,7 +1,3 @@
-/* ═══════════════════════════════════════════════════════════
-   Portfolio V2 — Zouhair Choufa — Premium CSS
-   ═══════════════════════════════════════════════════════════ */
-
 /* ─── Root variables ─────────────────────────────────────── */
 :root {
   --cyan:    #00e5ff;
@@ -78,22 +74,39 @@ html.light .cert-card { border-color: rgba(0,0,0,0.07); background: rgba(255,255
 html.light .timeline-item .glass-card { background: rgba(255,255,255,0.75); }
 html.light .section-eyebrow { color: var(--cyan); }
 
+html.light .cursor-dot {
+  background: var(--violet);
+  mix-blend-mode: multiply; 
+}
+
+html.light .cursor-ring {
+  border-color: rgba(180, 77, 255, 0.4); 
+}
+
+html.light body:has(a:hover) .cursor-ring,
+html.light body:has(button:hover) .cursor-ring {
+  border-color: var(--cyan); 
+}
 /* ─── Custom cursor ─────────────────────────────────────── */
 *, *::before { cursor: none; }
 .cursor-dot {
-  position: fixed; z-index: 9999; pointer-events: none;
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--cyan);;
-  transform: translate(-50%,-50%);
-  transition: transform .1s;
+  position: fixed; 
+  z-index: 9999; 
+  pointer-events: none;
+  width: 12px; 
+  height: 12px; 
+  border-radius: 50%;
+  background: #0b4684; 
   mix-blend-mode: screen;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); /* Ajoute un léger contraste */
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2); 
+  transition: background 0.3s, transform 0.2s ease-out;
+  will-change: transform;
 }
 .cursor-ring {
   position: fixed; z-index: 9998; pointer-events: none;
   width: 32px; height: 32px; border-radius: 50%;
   border: 2px solid rgba(0,229,255,.4);
-  transform: translate(-50%,-50%);
+  will-change: transform;
   transition: all .18s cubic-bezier(.23,1,.32,1);
 }
 body:has(a:hover) .cursor-ring,

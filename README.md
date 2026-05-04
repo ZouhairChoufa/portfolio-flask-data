@@ -29,9 +29,9 @@
     │   └── index.html          # Template HTML principal (Tailwind CDN)
     └── static/
         ├── css 
-            ├── style.css            # Styles CSS personnalises & overrides
+        │   └── style.css          # Styles CSS personnalises & overrides
         ├── js 
-            ├── script.js            # Logique UI, Three.js, AOS & EmailJS
+        │   └── script.js           # Logique UI, Three.js, AOS & EmailJS
         └── profile.png         # Photo de profil
 
 ---

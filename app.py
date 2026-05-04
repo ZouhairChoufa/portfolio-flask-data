@@ -29,27 +29,30 @@ PROFILE = {
 SKILLS = [
     {"category": "Data Science & IA", "icon": "fa-solid fa-brain", "skills": [
         {"name": "Python", "level": 92},
-        {"name": "TensorFlow / Keras", "level": 85},
         {"name": "Scikit-learn", "level": 88},
+        {"name": "TensorFlow / Keras", "level": 85},
         {"name": "NLP / Hugging Face", "level": 82},
-        {"name": "CrewAI (Multi-Agents)", "level": 78},
+        {"name": "CrewAI / RAG (LLMs)", "level": 78},
     ]},
     {"category": "Business Intelligence", "icon": "fa-solid fa-chart-column", "skills": [
-        {"name": "Power BI (DAX)", "level": 87},
         {"name": "Pandas / NumPy", "level": 90},
+        {"name": "SQL (PostgreSQL / MySQL)", "level": 88},
+        {"name": "Power BI (DAX)", "level": 87},
         {"name": "Elasticsearch", "level": 75},
     ]},
     {"category": "Développement Fullstack", "icon": "fa-solid fa-code", "skills": [
-        {"name": "Flask", "level": 88},
-        {"name": "Vue.js", "level": 80},
-        {"name": "Node.js", "level": 78},
+        {"name": "Flask (Backend Python)", "level": 90},
+        {"name": "Streamlit (Data UI)", "level": 86},
         {"name": "Tailwind CSS", "level": 85},
-        {"name": "Firebase", "level": 75},
+        {"name": "HTML / JavaScript Vanilla", "level": 78},
+        {"name": "Firebase (NoSQL & Auth)", "level": 75},
+        {"name": "Vue.js / Node.js", "level": 65},
     ]},
     {"category": "Outils & DevOps", "icon": "fa-solid fa-screwdriver-wrench", "skills": [
         {"name": "Git / GitHub", "level": 90},
-        {"name": "n8n (Automation)", "level": 72},
+        {"name": "Docker / Déploiement", "level": 80},
         {"name": "Scrum / Agile", "level": 80},
+        {"name": "n8n (Automation)", "level": 72},
     ]},
 ]
 
@@ -246,6 +249,7 @@ CERTIFICATIONS = [
     {"title": "The Machine Learning Algorithms A-Z", "org": "365 Data Science", "year": "2025"},
     {"title": "Power BI Data Visualization Hero", "org": "365 Data Science", "year": "2025"},
     {"title": "Machine Learning in Python", "org": "365 Data Science", "year": "2025"},
+    {"title": "Power BI", "org": "365 Data Science", "year": "2025"},
     {"title": "Introduction to Jupyter", "org": "365 Data Science", "year": "2025"},
 ]
 
