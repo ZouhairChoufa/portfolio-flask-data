@@ -1,183 +1,124 @@
-# 🧠 Portfolio — Zouhair Choufa
+# Portfolio V2 — Zouhair Choufa
 
-> Portfolio personnel Data & IA — Stack Flask + Tailwind CSS
+> **Portfolio personnel Premium | Data Science, Intelligence Artificielle & Fullstack**
+> Construit avec Python (Flask), Tailwind CSS, Vanilla JS et WebGL (Three.js).
 
----
-
-## 🗂️ Structure du projet
-
-```
-portfolio/
-├── app.py                  # Backend Flask (routes + données)
-├── requirements.txt        # Dépendances Python
-├── templates/
-│   └── index.html          # Template Jinja2 principal
-└── static/
-    ├── css/
-    │   └── style.css       # Styles personnalisés
-    └── js/
-        └── script.js       # Particules, animations, form
-```
+[![Python](https://img.shields.io/badge/Python-3.10+-3776AB?logo=python&logoColor=white)](#)
+[![Flask](https://img.shields.io/badge/Flask-3.0-000000?logo=flask&logoColor=white)](#)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)](#)
+[![Three.js](https://img.shields.io/badge/Three.js-WebGL-000000?logo=three.js&logoColor=white)](#)
 
 ---
 
-## 🚀 Lancer le projet en local
+## Fonctionnalites (V2 Upgrades)
 
-### Étape 1 — Cloner / placer les fichiers
+*   **Dark / Light Mode** : Bascule fluide avec sauvegarde des preferences (LocalStorage) et adaptation dynamique du design.
+*   **Arriere-plan 3D Interactif** : Reseau de neurones et de donnees genere en temps reel avec Three.js, reactif aux mouvements de la souris.
+*   **Messagerie Integree** : Formulaire de contact fonctionnel propulse par EmailJS (envoi direct sans serveur SMTP lourd).
+*   **Design Premium** : Glassmorphism, curseur personnalise, effets d'inclinaison 3D sur les cartes de projets, et animations fluides (AOS).
+*   **Backend Dynamique** : Toutes les donnees (projets, competences, bio) sont gerees dynamiquement via Flask.
 
-Assurez-vous d'avoir tous les fichiers dans un dossier `portfolio/`.
+---
 
-### Étape 2 — Créer un environnement virtuel
+## Structure du projet
 
-**Windows (PowerShell) :**
-```powershell
-cd portfolio
-python -m venv venv
-venv\Scripts\activate
-```
+    portfolio/
+    ├── app.py                  # Backend Flask (Routes & Data statique)
+    ├── requirements.txt        # Dependances Python
+    ├── templates/
+    │   └── index.html          # Template HTML principal (Tailwind CDN)
+    └── static/
+        ├── style.css           # Styles CSS personnalises & overrides
+        ├── script.js           # Logique UI, Three.js, AOS & EmailJS
+        └── profile.png         # Photo de profil
+
+---
+
+## Stack Technologique
+
+| Composant | Technologie |
+| :--- | :--- |
+| **Backend** | Python 3.10+, Flask 3.0 |
+| **Frontend UI** | HTML5, Tailwind CSS (via CDN) |
+| **Animations & 3D** | Vanilla JS, Three.js (WebGL), AOS (Animate On Scroll) |
+| **Messagerie** | EmailJS (Cote client) |
+| **Typographie** | Google Fonts (Bebas Neue, DM Mono, Outfit) |
+| **Icones** | FontAwesome 6 (SVG & Webfonts) |
+
+---
+
+## Lancer le projet en local
+
+### 1. Cloner le depot
+    git clone https://github.com/ZouhairChoufa/nom-du-repo.git
+    cd nom-du-repo
+
+### 2. Creer un environnement virtuel
+
+**Windows :**
+    python -m venv venv
+    venv\Scripts\activate
 
 **macOS / Linux :**
-```bash
-cd portfolio
-python3 -m venv venv
-source venv/bin/activate
-```
+    python3 -m venv venv
+    source venv/bin/activate
 
-> ✅ Vous devriez voir `(venv)` apparaître dans votre terminal.
+### 3. Installer les dependances
+    pip install -r requirements.txt
 
-### Étape 3 — Installer les dépendances
+### 4. Lancer le serveur Flask
+    python app.py
 
-```bash
-pip install -r requirements.txt
-```
-
-### Étape 4 — Lancer le serveur Flask
-
-```bash
-python app.py
-```
-
-### Étape 5 — Ouvrir dans le navigateur
-
-```
-http://127.0.0.1:5000
-```
+> Ouvrez votre navigateur sur : http://127.0.0.1:5000
 
 ---
 
-## 🛑 Arrêter le serveur
+## Personnaliser le contenu
 
-Appuyez sur `Ctrl + C` dans le terminal.
+Aucune modification du code HTML n'est necessaire pour mettre a jour vos informations. 
+Tout le contenu est centralise dans le fichier **app.py** via des dictionnaires Python :
 
----
-
-## ✏️ Personnaliser le contenu
-
-Tout le contenu (bio, projets, compétences, etc.) est centralisé dans **`app.py`** dans les variables :
-
-- `PROFILE` → vos informations personnelles
-- `SKILLS` → catégories et barres de progression
-- `PROJECTS` → cartes projets (titre, description, tags, lien GitHub)
-- `EXPERIENCE` → expériences professionnelles
-- `CERTIFICATIONS` → vos certifications
-
-Aucune modification du HTML n'est nécessaire pour mettre à jour le contenu.
+*   PROFILE : Bio, liens reseaux sociaux, statut actuel.
+*   SKILLS : Categories et barres de progression dynamiques.
+*   PROJECTS : Liste des projets avec filtrage automatique par tags.
+*   EXPERIENCE & CERTIFICATIONS : Historique professionnel.
 
 ---
 
-## 📧 Formulaire de contact
+## Configuration EmailJS (Contact)
 
-Le formulaire envoie les données à `/api/contact` via `fetch`. Par défaut, les messages sont affichés dans le terminal Flask (mode dev).
+Le formulaire de contact utilise EmailJS pour envoyer les messages directement dans votre boite de reception.
 
-**Pour la production**, remplacez la section `# In production` dans `app.py` par un service email :
+Pour l'activer sur votre propre environnement :
+1. Creez un compte gratuit sur EmailJS et connectez votre adresse Gmail.
+2. Creez un Email Template.
+3. Recuperez vos cles et remplacez-les dans static/script.js dans la fonction handleContact() :
 
-- **SendGrid** : `pip install sendgrid`
-- **Mailgun** : API REST simple
-- **Flask-Mail** : `pip install flask-mail`
-
-Exemple avec SendGrid :
-```python
-import sendgrid
-from sendgrid.helpers.mail import Mail
-
-sg = sendgrid.SendGridAPIClient(api_key=os.environ.get('SENDGRID_API_KEY'))
-message = Mail(from_email='you@example.com', to_emails='you@example.com',
-               subject=f'Contact de {name}', html_content=message)
-sg.send(message)
-```
+    emailjs.init("VOTRE_PUBLIC_KEY");
+    emailjs.send("VOTRE_SERVICE_ID", "VOTRE_TEMPLATE_ID", templateParams)
 
 ---
 
-## 🌐 Déploiement en production
+## Deploiement en production
 
-### Option A — Render (Recommandé, gratuit)
+### Option A — Render (Recommande, Gratuit)
+1. Creez un compte sur Render et connectez votre GitHub.
+2. Creez un New Web Service et selectionnez ce depot.
+3. Configuration :
+   * Build Command : pip install -r requirements.txt
+   * Start Command : gunicorn app:app (necessite d'ajouter gunicorn a votre requirements.txt).
+4. Deployez !
 
-1. Créez un compte sur [render.com](https://render.com)
-2. Connectez votre repo GitHub
-3. **New Web Service** → sélectionnez votre repo
-4. Configurez :
-   - **Build Command** : `pip install -r requirements.txt`
-   - **Start Command** : `gunicorn app:app`
-5. Ajoutez `gunicorn` à `requirements.txt` : `gunicorn==21.2.0`
-6. Cliquez **Deploy** → votre portfolio est en ligne !
-
-### Option B — PythonAnywhere (Simple)
-
-1. Créez un compte sur [pythonanywhere.com](https://pythonanywhere.com)
-2. **Files** → Upload vos fichiers
-3. **Web** → Add new web app → Flask → Python 3.10
-4. Configurez le chemin vers `app.py`
-5. Reload → votre site est live sur `username.pythonanywhere.com`
-
-### Option C — VPS (Avancé)
-
-```bash
-# Installer gunicorn et nginx
-pip install gunicorn
-gunicorn -w 4 -b 0.0.0.0:8000 app:app
-
-# Configurer nginx comme reverse proxy vers le port 8000
-```
+### Option B — PythonAnywhere
+1. Allez sur PythonAnywhere.
+2. Ajoutez une nouvelle Web App (Flask -> Python 3.10).
+3. Importez vos fichiers et pointez le chemin d'execution vers app.py.
 
 ---
 
-## 📦 Variables d'environnement (production)
+## Licence
 
-Créez un fichier `.env` (ne jamais le committer) :
-```
-FLASK_ENV=production
-SECRET_KEY=votre_cle_secrete_longue_et_aleatoire
-SENDGRID_API_KEY=votre_cle_sendgrid
-```
-
-Et dans `app.py` :
-```python
-from dotenv import load_dotenv
-import os
-load_dotenv()
-app.secret_key = os.environ.get('SECRET_KEY', 'dev-key')
-```
-
-Installez : `pip install python-dotenv`
+Distribue sous la licence MIT. Libre d'utilisation et de modification.
 
 ---
-
-## 🧩 Technologies utilisées
-
-| Couche | Technologie |
-|--------|-------------|
-| Backend | Python 3.10+, Flask 3.0 |
-| Frontend | HTML5, Tailwind CSS (CDN), JS Vanilla |
-| Animations | AOS (Animate On Scroll), Canvas API |
-| Fonts | Google Fonts (Syne, Space Mono, DM Sans) |
-| Icons | SVG inline |
-
----
-
-## 📝 License
-
-MIT — Libre d'utilisation et de modification.
-
----
-
-*Made by Zouhair Choufa — zouhair.choufa3@gmail.com*
+Developpe par Zouhair Choufa (https://github.com/ZouhairChoufa)
