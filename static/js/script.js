@@ -1,7 +1,3 @@
-/* ═══════════════════════════════════════════════════════════
-   Portfolio V2 — Zouhair Choufa — Premium JavaScript
-   ═══════════════════════════════════════════════════════════ */
-
 /* ─── 1. Dark / Light Mode ────────────────────────────────── */
 (function initTheme() {
   const root   = document.documentElement;
@@ -32,6 +28,8 @@ document.getElementById('theme-toggle')?.addEventListener('click', () => {
 // Apply thumb position on load
 window.addEventListener('DOMContentLoaded', () => {
   const saved = localStorage.getItem('zc-theme') || 'dark';
+  // ── EmailJS Init ─────────────────────────────────────────────
+  emailjs.init("EPa5IpRN6uXARTeO2");
   setTheme(saved);
 });
 
@@ -296,36 +294,54 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 });
 
 /* ─── 11. Contact form ─────────────────────────────────────── */
+// ── Contact Form — EmailJS ────────────────────────────────────
 async function handleContact(e) {
   e.preventDefault();
-  const form   = e.target;
-  const btn    = document.getElementById('submit-btn');
-  const msg    = document.getElementById('form-msg');
-  const data   = { name: form.name.value, email: form.email.value, message: form.message.value };
 
+  const form    = e.target;                            
+  const btn     = document.getElementById('submit-btn');
+  const msgBox  = document.getElementById('form-msg');
+
+  // ── Désactiver le bouton pendant l'envoi ──────────────────
   btn.disabled    = true;
   btn.textContent = 'Envoi en cours...';
+  msgBox.classList.add('hidden');
+
+  // ── Paramètres à envoyer au template EmailJS ──────────────
+  const templateParams = {
+    from_name : form.name.value.trim(),
+    reply_to  : form.email.value.trim(),
+    message   : form.message.value.trim(),
+  };
 
   try {
-    const res    = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
-    const result = await res.json();
-    msg.classList.remove('hidden');
-    if (result.success) {
-      msg.textContent  = '✓ ' + result.message;
-      msg.className    = 'font-mono text-xs py-2 rounded-lg text-center text-emerald-400 bg-emerald-500/10';
-      form.reset();
-    } else {
-      msg.textContent = '✗ ' + (result.error || 'Erreur.');
-      msg.className   = 'font-mono text-xs py-2 rounded-lg text-center text-rose-400 bg-rose-500/10';
-    }
-  } catch {
-    msg.classList.remove('hidden');
-    msg.textContent = '✗ Erreur réseau. Réessayez.';
-    msg.className   = 'font-mono text-xs py-2 rounded-lg text-center text-rose-400 bg-rose-500/10';
+    // ── Appel EmailJS ─────────────────────────────────────────
+    await emailjs.send(
+      "service_49oecnv",    
+      "template_10xacxf",   
+      templateParams
+    );
+
+    // ── Succès ────────────────────────────────────────────────
+    msgBox.textContent = '✓ Message envoyé ! Je vous répondrai très bientôt.';
+    msgBox.className   = 'font-mono text-xs py-2 rounded-lg text-center text-emerald-400 bg-emerald-500/10';
+    msgBox.classList.remove('hidden');
+    form.reset();
+
+  } catch (error) {
+    // ── Erreur (quota dépassé, mauvais IDs, réseau...) ────────
+    console.error('EmailJS error:', error);
+    msgBox.textContent = '✗ Échec de l\'envoi. Contactez-moi directement par email.';
+    msgBox.className   = 'font-mono text-xs py-2 rounded-lg text-center text-rose-400 bg-rose-500/10';
+    msgBox.classList.remove('hidden');
+
   } finally {
+    // ── Toujours réactiver le bouton ──────────────────────────
     btn.disabled    = false;
     btn.textContent = 'Envoyer le message';
-    setTimeout(() => msg.classList.add('hidden'), 5000);
+
+    // Masquer le message après 6 secondes
+    setTimeout(() => msgBox.classList.add('hidden'), 6000);
   }
 }
 
