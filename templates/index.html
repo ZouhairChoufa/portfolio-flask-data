@@ -187,33 +187,6 @@
             <span class="font-mono text-xs text-slate-600 tracking-wider">{{ profile.location }}</span>
           </div>
         </div>
-
-        <div class="mt-8" data-aos="fade-up" data-aos-delay="200">
-          <div class="linkedin-badge-dark">
-            <div
-              class="badge-base LI-profile-badge"
-              data-locale="fr_FR"
-              data-size="large"
-              data-theme="dark"
-              data-type="HORIZONTAL"
-              data-vanity="zouhair-choufa"
-              data-version="v1">
-            </div>
-          </div>
-
-          <div class="linkedin-badge-light" style="display: none;">
-            <div
-              class="badge-base LI-profile-badge"
-              data-locale="fr_FR"
-              data-size="large"
-              data-theme="light"
-              data-type="HORIZONTAL"
-              data-vanity="zouhair-choufa"
-              data-version="v1">
-            </div>
-          </div>
-        </div>
-
         <!-- ── Right col — Profile photo ─────────────── -->
         <div class="hidden lg:flex items-center justify-center" data-aos="fade-left" data-aos-delay="200">
           <div class="profile-photo-wrap">
@@ -243,9 +216,7 @@
             </div>
           </div>
         </div>
-
       </div>
-
       <!-- Scroll indicator -->
       <div class="flex justify-center mt-20" data-aos="fade-up" data-aos-delay="500">
         <a href="#about" class="scroll-indicator flex flex-col items-center gap-2 text-slate-600 hover:text-neon-cyan transition-colors group">
@@ -533,52 +504,54 @@
         </p>
       </div>
 
-      <div class="grid md:grid-cols-2 gap-8 mt-14">
+      <div class="grid md:grid-cols-2 gap-8 mt-14 items-start">
 
-        <!-- Links -->
-        <div class="space-y-3" data-aos="fade-right">
-          {% for icon, label, value, href in [
-            ('fa-envelope','Email',profile.email,'mailto:'+profile.email),
-            ('fa-brands fa-linkedin','LinkedIn','linkedin.com/in/zouhair-choufa',profile.linkedin),
-            ('fa-brands fa-github','GitHub','github.com/ZouhairChoufa',profile.github),
-            ('fa-location-dot','Localisation',profile.location,'#')
-          ] %}
-          <a href="{{ href }}" {% if href != '#' %}target="_blank"{% endif %}
-             class="contact-link group flex items-center gap-4 p-4 rounded-xl border border-white/5 hover:border-neon-cyan/25 bg-ink-900/40 transition-all duration-300">
-            <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-neon-cyan/10 transition-colors">
-              <i class="{{ icon }} text-slate-500 group-hover:text-neon-cyan transition-colors text-sm"></i>
-            </div>
-            <div>
-              <p class="font-mono text-[10px] text-slate-600 tracking-widest uppercase">{{ label }}</p>
-              <p class="text-slate-300 text-sm group-hover:text-neon-cyan transition-colors">{{ value }}</p>
-            </div>
-            {% if href != '#' %}
-            <i class="fa-solid fa-arrow-right text-xs text-slate-700 group-hover:text-neon-cyan ml-auto transition-colors"></i>
-            {% endif %}
-          </a>
-          {% endfor %}
-        </div>
-
-        <div class="mt-10" data-aos="fade-right" data-aos-delay="100">
-          <p class="font-mono text-[10px] tracking-[0.4em] text-slate-600 uppercase mb-5">
-            // Connect with me
-          </p>
+        <div class="space-y-10" data-aos="fade-right">
           
-          <div id="linkedin-badge-dark">
-            <div class="badge-base LI-profile-badge" data-locale="fr_FR" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="zouhair-choufa" data-version="v1">
-              <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/zouhair-choufa/">Zouhair Choufa</a>
+          <div class="space-y-3">
+            {% for icon, label, value, href in [
+              ('fa-envelope','Email',profile.email,'mailto:'+profile.email),
+              ('fa-brands fa-linkedin','LinkedIn','linkedin.com/in/zouhair-choufa',profile.linkedin),
+              ('fa-brands fa-github','GitHub','github.com/ZouhairChoufa',profile.github),
+              ('fa-location-dot','Localisation',profile.location,'#')
+            ] %}
+            <a href="{{ href }}" {% if href != '#' %}target="_blank"{% endif %}
+               class="contact-link group flex items-center gap-4 p-4 rounded-xl border border-white/5 hover:border-neon-cyan/25 bg-ink-900/40 transition-all duration-300">
+              <div class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-neon-cyan/10 transition-colors">
+                <i class="{{ icon }} text-slate-500 group-hover:text-neon-cyan transition-colors text-sm"></i>
+              </div>
+              <div>
+                <p class="font-mono text-[10px] text-slate-600 tracking-widest uppercase">{{ label }}</p>
+                <p class="text-slate-300 text-sm group-hover:text-neon-cyan transition-colors">{{ value }}</p>
+              </div>
+              {% if href != '#' %}
+              <i class="fa-solid fa-arrow-right text-xs text-slate-700 group-hover:text-neon-cyan ml-auto transition-colors"></i>
+              {% endif %}
+            </a>
+            {% endfor %}
+          </div>
+
+          <div class="w-full overflow-hidden">
+            <p class="font-mono text-[10px] tracking-[0.4em] text-slate-600 uppercase mb-5">
+              // Connect with me
+            </p>
+            
+            <div class="linkedin-badge-dark">
+              <div class="badge-base LI-profile-badge" data-locale="fr_FR" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="zouhair-choufa" data-version="v1">
+                <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/zouhair-choufa/">Zouhair Choufa</a>
+              </div>
+            </div>
+            
+            <div class="linkedin-badge-light">
+              <div class="badge-base LI-profile-badge" data-locale="fr_FR" data-size="large" data-theme="light" data-type="HORIZONTAL" data-vanity="zouhair-choufa" data-version="v1">
+                <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/zouhair-choufa/">Zouhair Choufa</a>
+              </div>
             </div>
           </div>
-          
-          <div id="linkedin-badge-light" style="display: none;">
-            <div class="badge-base LI-profile-badge" data-locale="fr_FR" data-size="large" data-theme="light" data-type="HORIZONTAL" data-vanity="zouhair-choufa" data-version="v1">
-              <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/zouhair-choufa/">Zouhair Choufa</a>
-            </div>
-          </div>
+
         </div>
 
-        <!-- Form -->
-        <div class="glass-card p-7 rounded-2xl" data-aos="fade-left">
+        <div class="glass-card p-7 rounded-2xl h-fit" data-aos="fade-left">
           <form id="contact-form" class="space-y-4" onsubmit="handleContact(event)">
             <div>
               <label class="form-label">Nom</label>
