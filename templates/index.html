@@ -188,6 +188,32 @@
           </div>
         </div>
 
+        <div class="mt-8" data-aos="fade-up" data-aos-delay="200">
+          <div class="linkedin-badge-dark">
+            <div
+              class="badge-base LI-profile-badge"
+              data-locale="fr_FR"
+              data-size="large"
+              data-theme="dark"
+              data-type="HORIZONTAL"
+              data-vanity="zouhair-choufa"
+              data-version="v1">
+            </div>
+          </div>
+
+          <div class="linkedin-badge-light" style="display: none;">
+            <div
+              class="badge-base LI-profile-badge"
+              data-locale="fr_FR"
+              data-size="large"
+              data-theme="light"
+              data-type="HORIZONTAL"
+              data-vanity="zouhair-choufa"
+              data-version="v1">
+            </div>
+          </div>
+        </div>
+
         <!-- ── Right col — Profile photo ─────────────── -->
         <div class="hidden lg:flex items-center justify-center" data-aos="fade-left" data-aos-delay="200">
           <div class="profile-photo-wrap">
@@ -533,6 +559,24 @@
           {% endfor %}
         </div>
 
+        <div class="mt-10" data-aos="fade-right" data-aos-delay="100">
+          <p class="font-mono text-[10px] tracking-[0.4em] text-slate-600 uppercase mb-5">
+            // Connect with me
+          </p>
+          
+          <div id="linkedin-badge-dark">
+            <div class="badge-base LI-profile-badge" data-locale="fr_FR" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="zouhair-choufa" data-version="v1">
+              <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/zouhair-choufa/">Zouhair Choufa</a>
+            </div>
+          </div>
+          
+          <div id="linkedin-badge-light" style="display: none;">
+            <div class="badge-base LI-profile-badge" data-locale="fr_FR" data-size="large" data-theme="light" data-type="HORIZONTAL" data-vanity="zouhair-choufa" data-version="v1">
+              <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/zouhair-choufa/">Zouhair Choufa</a>
+            </div>
+          </div>
+        </div>
+
         <!-- Form -->
         <div class="glass-card p-7 rounded-2xl" data-aos="fade-left">
           <form id="contact-form" class="space-y-4" onsubmit="handleContact(event)">
@@ -572,14 +616,15 @@
     </div>
   </footer>
 
-  <!-- ── Scripts ──────────────────────────────────── -->
+  <!-- 1. AOS -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <!-- Three.js -->
+  <!-- 2. Three.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <!-- EmailJS SDK -->
-  <script type="text/javascript"
-    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-  </script>
+  <!-- 3. EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <!-- 4. LinkedIn Badge (async, ne bloque pas le reste) -->
+  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+  <!-- 5. Votre script principal (en dernier) -->
   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

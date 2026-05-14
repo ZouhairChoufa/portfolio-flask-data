@@ -87,6 +87,31 @@ html.light body:has(a:hover) .cursor-ring,
 html.light body:has(button:hover) .cursor-ring {
   border-color: var(--cyan); 
 }
+
+/* ─── LinkedIn Badge — Dark/Light Mode switch ────────────── */
+
+/* Par défaut (Dark Mode) : dark visible, light masqué */
+.linkedin-badge-dark  { display: block; }
+.linkedin-badge-light { display: none;  }
+
+/* En Light Mode : inverser l'affichage */
+html.light .linkedin-badge-dark  { display: none;  }
+html.light .linkedin-badge-light { display: block; }
+
+/* Fix scrollbar : empêcher l'iframe LinkedIn de déborder */
+.badge-base iframe,
+.LI-profile-badge iframe {
+  overflow: hidden !important;
+  max-width: 100% !important;
+}
+
+/* Conteneur propre sans débordement */
+.linkedin-badge-dark,
+.linkedin-badge-light {
+  overflow: hidden;
+  border-radius: 8px;
+  max-width: 100%;
+}
 /* ─── Custom cursor ─────────────────────────────────────── */
 *, *::before { cursor: none; }
 .cursor-dot {
@@ -274,6 +299,8 @@ body:has(button:hover) .cursor-ring { transform: translate(-50%,-50%) scale(1.8)
   transition: border-color var(--speed), transform var(--speed) cubic-bezier(.23,1,.32,1);
 }
 .profile-type-card:hover { border-color: rgba(0,229,255,.25); transform: translateX(4px); }
+
+
 
 /* ─── Skill bars ─────────────────────────────────────────── */
 .skill-bar {
