@@ -531,13 +531,36 @@
             {% endfor %}
           </div>
 
-          <div class="mt-10 w-full overflow-hidden">
+          <div class="mt-10 w-full">
             <p class="font-mono text-[10px] tracking-[0.4em] text-slate-600 uppercase mb-5">
               // Connect with me
             </p>
-            <div id="linkedin-badge-container"></div>
+            
+            <a href="https://www.linkedin.com/in/zouhair-choufa/" target="_blank" 
+               class="block glass-card p-5 rounded-xl border border-white/5 hover:border-neon-cyan/40 transition-all duration-300 group">
+              
+              <div class="flex items-start gap-4">
+                <div class="w-14 h-14 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-neon-cyan transition-colors flex-shrink-0 bg-ink-800">
+                  <img src="{{ url_for('static', filename='profile2.png') }}" alt="Zouhair Choufa" class="w-full h-full object-cover">
+                </div>
+                
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 mb-1">
+                    <h3 class="font-body font-bold text-white text-base truncate group-hover:text-neon-cyan transition-colors">Zouhair Choufa</h3>
+                    <i class="fa-brands fa-linkedin text-[#0A66C2] text-sm bg-white rounded-sm"></i>
+                  </div>
+                  <p class="text-[11px] text-slate-400 leading-snug line-clamp-2 mb-3">
+                    Data & BI Analyst | PFE Intern at OCP Group | Master in Business Intelligence & Big Data Analytics
+                  </p>
+                  
+                  <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 font-mono text-[10px] text-slate-300 group-hover:bg-neon-cyan/10 group-hover:text-neon-cyan group-hover:border-neon-cyan/30 transition-all uppercase tracking-wider">
+                    Voir le profil <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
-          
+
         </div>
 
         <div class="glass-card p-7 rounded-2xl h-fit" data-aos="fade-left">
